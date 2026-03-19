@@ -4,7 +4,11 @@
 }
 *{box-sizing:border-box}
 body{font-family:Inter, 'Segoe UI', Roboto, Arial, sans-serif;margin:0;background:linear-gradient(180deg,var(--bg),#ffffff);color:var(--text);line-height:1.5}
-.container{max-width:1100px;margin:0 auto;padding:1rem}
+
+/* subtle site background (finance-themed SVG) */
+body::before{content:"";position:fixed;inset:0;background: url('assets/bg-finance.svg') center right/60% no-repeat, radial-gradient(rgba(7,20,40,0.02), transparent);opacity:0.09;pointer-events:none;z-index:0}
+
+.container{max-width:1100px;margin:0 auto;padding:1rem;position:relative;z-index:10}
 .site-header{backdrop-filter: blur(6px);background:linear-gradient(90deg,rgba(255,255,255,0.6),transparent);border-bottom:1px solid rgba(12,24,46,0.06);position:sticky;top:0;z-index:30}
 .site-header .header-row{display:flex;align-items:center;gap:1rem}
 .logo{margin:0;font-size:1.25rem;font-weight:700;color:var(--accent)}

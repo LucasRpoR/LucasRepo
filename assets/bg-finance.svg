@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0" stop-color="#0b2233" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#071428" stop-opacity="0.15"/>
+    </linearGradient>
+    <filter id="grain"><feTurbulence baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter>
+  </defs>
+  <rect width="1200" height="800" fill="url(#g1)"/>
+  <!-- abstract chart lines and coins (subtle, large shapes) -->
+  <g fill="none" stroke="#9fbcd8" stroke-opacity="0.06" stroke-width="6" transform="translate(-80,40)">
+    <path d="M120 600 L220 480 L320 520 L420 360 L520 400 L620 300 L720 340 L820 220 L920 260 L1020 180"/>
+    <path d="M80 680 L160 600 L240 640 L320 560 L400 600 L480 520 L560 560 L640 480 L720 520 L800 440"/>
+  </g>
+  <g fill="#ffd54a" fill-opacity="0.06" transform="translate(840,70)">
+    <circle cx="60" cy="60" r="52" />
+    <circle cx="140" cy="140" r="40" />
+  </g>
+  <g fill="#7c3aed" fill-opacity="0.04" transform="translate(40,120)">
+    <rect x="40" y="40" width="220" height="140" rx="30"/>
+  </g>
+</svg>
