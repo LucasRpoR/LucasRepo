@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lucas web</title>
+  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Página web de ejemplo creada rápidamente.">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">Mi Sitio</h1>
+      <nav class="nav">
+        <a href="#">Inicio</a>
+        <a href="#features">Características</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+      <div class="actions">
+        <button id="darkToggle" aria-label="Alternar tema">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h2>Bienvenido a tu nueva página web</h2>
+        <p>Esta es una plantilla sencilla para comenzar. Personalízala a tu gusto.</p>
+        <a class="btn" href="#contact">Contáctame</a>
+      </div>
+    </section>
+
+    <section id="features" class="features container">
+      <article>
+        <h3>Diseño responsive</h3>
+        <p>Se adapta a móviles y escritorio.</p>
+      </article>
+      <article>
+        <h3>Fácil de editar</h3>
+        <p>HTML, CSS y JS claros para personalizar.</p>
+      </article>
+      <article>
+        <h3>Interactividad</h3>
+        <p>Formulario de contacto y modo oscuro.</p>
+      </article>
+    </section>
+
+    <section id="contact" class="contact container">
+      <h3>Contacto</h3>
+      <form id="contactForm">
+        <label>Nombre
+          <input type="text" name="name" required>
+        </label>
+        <label>Email
+          <input type="email" name="email" required>
+        </label>
+        <label>Mensaje
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+      <div id="formMessage" role="status" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">© 2026 — Página de ejemplo</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
