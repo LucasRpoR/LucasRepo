@@ -130,3 +130,34 @@ body.dark .features article{background:#071028}
   .btn.ghost{color:rgba(200,225,255,0.9);border-color:rgba(255,255,255,0.08)}
   .theme-btn{border:2px solid rgba(255,255,255,0.08)}
 }
+
+/* Also support explicit body.dark class to ensure visibility when system prefs aren't used */
+body.dark .site-header .nav a,
+body.dark .site-header .nav a:link,
+body.dark .site-header .nav a:visited{
+  color:rgba(230,238,248,0.95);
+  opacity:1;
+}
+body.dark .site-header .logo{color:var(--accent)}
+
+/* Buttons and ghost style in dark */
+body.dark .btn{box-shadow:0 8px 24px rgba(0,0,0,0.45)}
+body.dark .btn.ghost{color:rgba(220,235,255,0.95);background:transparent;border-color:rgba(255,255,255,0.06)}
+
+/* Contact form fields and labels in dark mode */
+body.dark .contact label{color:rgba(230,238,248,0.95)}
+body.dark .contact input, body.dark .contact textarea{
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.08);
+  color:rgba(230,238,248,0.95);
+}
+body.dark .contact input::placeholder, body.dark .contact textarea::placeholder{
+  color:rgba(230,238,248,0.5);
+}
+
+/* Header actions/icons */
+body.dark .actions button, body.dark .menu-toggle{color:rgba(230,238,248,0.95)}
+body.dark .theme-btn{border:2px solid rgba(255,255,255,0.12)}
+
+/* Ensure header is not translucent */
+body.dark .site-header, body.dark .site-header *{opacity:1}
