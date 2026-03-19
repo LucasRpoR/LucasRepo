@@ -6,10 +6,33 @@
 body{font-family:Inter, 'Segoe UI', Roboto, Arial, sans-serif;margin:0;background:linear-gradient(180deg,var(--bg),#ffffff);color:var(--text);line-height:1.5}
 
 /* subtle site background (finance-themed SVG) */
-body::before{content:"";position:fixed;inset:0;background: url('assets/bg-finance.svg') center right/70% no-repeat, radial-gradient(rgba(7,20,40,0.02), transparent);opacity:0.16;pointer-events:none;z-index:0}
+/* full-bleed background with adaptive overlay to keep text/buttons readable */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  /* SVG covers entire background for a continuous look */
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.42), rgba(255,255,255,0.06)),
+    url('assets/bg-finance.svg') center/cover no-repeat;
+  opacity:1;
+  pointer-events:none;
+  z-index:0;
+}
 
+/* Reduce intensity on small screens */
 @media (max-width:800px){
-  body::before{background-size:120%;background-position:center top;opacity:0.08}
+  body::before{background-position:center top; background-size:140%;}
+}
+
+/* Dark mode overlay: darker gradient to preserve contrast */
+@media (prefers-color-scheme:dark){
+  body::before{
+    background:
+      linear-gradient(180deg, rgba(2,6,23,0.52), rgba(2,6,23,0.12)),
+      url('assets/bg-finance.svg') center/cover no-repeat;
+    opacity:1;
+  }
 }
 
 .container{max-width:1100px;margin:0 auto;padding:1rem;position:relative;z-index:10}
