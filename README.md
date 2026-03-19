@@ -59,6 +59,30 @@ Si prefieres otra solución (Netlify Forms, Formspree, o un backend propio), pue
 - Ajustar textos, precios y planes.
 - Añadir secciones (testimonios, FAQ, blog) o integrar pagos/agenda.
 
+Optimizar imágenes (rápido)
+--------------------------
+
+Si quieres que optimice automáticamente las imágenes que subas a `assets/` (recomiendo convertir a WebP y generar varios tamaños), sigue estos pasos:
+
+1. Instala dependencias (requiere Node.js):
+
+```powershell
+cd "%USERPROFILE%\Documents\website"
+npm install
+```
+
+2. Copia tu imagen original en `assets/` con nombre `hero-bg.jpg` (o `hero-bg.png`).
+
+3. Ejecuta:
+
+```powershell
+npm run optimize-images
+```
+
+El script generará múltiples versiones (`hero-bg-1600.jpg`, `hero-bg-1200.webp`, etc.). Luego actualiza `styles.css` para apuntar a la versión preferida (`hero-bg-1200.webp`) si lo deseas.
+
+Si quieres que lo haga yo aquí, sube el archivo `hero-bg.jpg` y lo optimizo/commiteo por ti.
+
 ***
 
 Si quieres que haga algún cambio en el contenido del sitio (texto, precios, FAQs, agregar servicios), dime qué editar y lo actualizo aquí mismo.

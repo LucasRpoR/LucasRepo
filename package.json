@@ -1,0 +1,11 @@
+{
+  "name": "lucas-website-tools",
+  "version": "1.0.0",
+  "description": "Utility scripts for the Lucas website (image optimization)",
+  "scripts": {
+    "optimize-images": "node tools/optimize_images.js"
+  },
+  "dependencies": {
+    "sharp": "^0.33.0"
+  }
+}
