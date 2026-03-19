@@ -117,3 +117,16 @@ body.dark .features article{background:#071028}
   /* style darkToggle for dark mode (subtle, no white box) */
   #darkToggle{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06)}
 }
+
+/* Additional dark-mode fixes for text visibility */
+@media (prefers-color-scheme:dark){
+  .site-header, .site-header *{color:inherit}
+  .site-header .nav a{color:rgba(230,238,248,0.95);text-shadow:0 1px 0 rgba(0,0,0,0.3)}
+  .hero h2{color:var(--text);text-shadow:none}
+  .hero p{color:rgba(230,238,248,0.75)}
+  .contact label{color:rgba(230,238,248,0.85)}
+  .contact input, .contact textarea{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);color:var(--text)}
+  .contact input::placeholder, .contact textarea::placeholder{color:rgba(230,238,248,0.55)}
+  .btn.ghost{color:rgba(200,225,255,0.9);border-color:rgba(255,255,255,0.08)}
+  .theme-btn{border:2px solid rgba(255,255,255,0.08)}
+}
