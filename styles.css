@@ -161,3 +161,32 @@ body.dark .theme-btn{border:2px solid rgba(255,255,255,0.12)}
 
 /* Ensure header is not translucent */
 body.dark .site-header, body.dark .site-header *{opacity:1}
+
+/* Privacy note and footer visibility overrides (high-specificity, final) */
+.privacy{
+  font-size:.9rem;
+  color:var(--muted);
+  margin-top:.6rem;
+}
+
+/* Stronger dark-mode form field contrast */
+body.dark .contact input,
+body.dark .contact textarea,
+body.dark .contact select{
+  background: rgba(255,255,255,0.03) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  color: rgba(240,248,255,0.95) !important;
+}
+body.dark .contact label,
+body.dark .privacy{
+  color: rgba(235,245,255,0.9) !important;
+}
+
+/* Ghost button visibility */
+.btn.ghost{border:1px solid rgba(37,99,235,0.12)}
+body.dark .btn.ghost{border-color:rgba(255,255,255,0.12);color:rgba(240,248,255,0.9)}
+
+/* Footer contrast */
+.site-footer{color:var(--muted)}
+body.dark .site-footer{color:rgba(220,230,240,0.78)}
+
