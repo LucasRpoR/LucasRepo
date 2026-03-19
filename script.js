@@ -136,4 +136,39 @@ document.addEventListener('DOMContentLoaded',()=>{
       }
     }, {passive:true});
   }
+
+  // Make the blob more interactive: follow pointer subtly and support device orientation on mobile
+  const blob = document.querySelector('.blob');
+  const heroArt = document.querySelector('.hero-art');
+  if(blob && heroArt){
+    let bx = 0, by = 0, tx = 0, ty = 0;
+    const speed = 0.12;
+    function rafBlob(){
+      bx += (tx - bx) * speed;
+      by += (ty - by) * speed;
+      blob.style.transform = `translate3d(${bx}px, ${by}px, 0) translateZ(0) rotate(${bx*0.02}deg)`;
+      requestAnimationFrame(rafBlob);
+    }
+    requestAnimationFrame(rafBlob);
+
+    heroArt.addEventListener('pointermove', (e)=>{
+      const r = heroArt.getBoundingClientRect();
+      const cx = r.left + r.width/2; const cy = r.top + r.height/2;
+      const dx = (e.clientX - cx) / (r.width/2); // -1..1
+      const dy = (e.clientY - cy) / (r.height/2);
+      tx = dx * 18; ty = dy * 12;
+    }, {passive:true});
+    heroArt.addEventListener('pointerleave', ()=>{ tx = 0; ty = 0; });
+
+    // device orientation for mobile tilt (falls back gracefully)
+    if(window.DeviceOrientationEvent){
+      window.addEventListener('deviceorientation', (ev)=>{
+        if(ev.gamma===null) return;
+        // gamma: left-right tilt, beta: front-back
+        const gx = Math.max(-30, Math.min(30, ev.gamma));
+        const gy = Math.max(-30, Math.min(30, ev.beta-45));
+        tx = (gx/30) * 18; ty = (gy/30) * 12;
+      });
+    }
+  }
 });
