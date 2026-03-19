@@ -12,7 +12,7 @@ Cómo ver la página:
 
 O ejecutar un servidor local (recomendado para rutas relativas):
 
-# Sitio de Asesorías — Lucas Restrepo
+# Asesorias Financieras — Lucas Restrepo
 
 Archivos principales:
 
