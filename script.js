@@ -96,4 +96,21 @@ document.addEventListener('DOMContentLoaded',()=>{
       el.animate([{transform:'translateY(0) rotate(0deg)', opacity:1},{transform:`translateY(${dy}px) rotate(360deg)`, opacity:0}],{duration:900+Math.random()*800,easing:'cubic-bezier(.2,.8,.2,1)'}).onfinish = ()=> el.remove();
     }
   }
+  // Parallax background: subtle vertical movement
+  const bg = document.querySelector('.bg-layer');
+  if(bg){
+    let latestScroll = 0;
+    let ticking = false;
+    window.addEventListener('scroll', ()=>{
+      latestScroll = window.scrollY;
+      if(!ticking){
+        window.requestAnimationFrame(()=>{
+          const translate = Math.round(latestScroll * 0.08);
+          bg.style.transform = `translate3d(0, ${translate}px, 0)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, {passive:true});
+  }
 });

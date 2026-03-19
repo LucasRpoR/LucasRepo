@@ -6,33 +6,40 @@
 body{font-family:Inter, 'Segoe UI', Roboto, Arial, sans-serif;margin:0;background:linear-gradient(180deg,var(--bg),#ffffff);color:var(--text);line-height:1.5}
 
 /* subtle site background (finance-themed SVG) */
-/* full-bleed background with adaptive overlay to keep text/buttons readable */
+/* Background layer (separate element) — SVG desaturated + subtle parallax */
+.bg-layer{
+  position:fixed;
+  inset:0;
+  background-image: url('assets/bg-finance.svg');
+  background-size:cover;
+  background-position: center;
+  background-repeat:no-repeat;
+  filter:grayscale(0.7) contrast(0.9) saturate(0.7) blur(0.3px);
+  opacity:0.14;
+  pointer-events:none;
+  z-index:0;
+  transform:translate3d(0,0,0);
+  will-change:transform, opacity;
+}
+
+/* Overlay gradient for contrast and readability */
 body::before{
   content:"";
   position:fixed;
   inset:0;
-  /* SVG covers entire background for a continuous look */
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.42), rgba(255,255,255,0.06)),
-    url('assets/bg-finance.svg') center/cover no-repeat;
-  opacity:1;
+  background: linear-gradient(180deg, rgba(255,255,255,0.46), rgba(255,255,255,0.06));
   pointer-events:none;
-  z-index:0;
+  z-index:1;
 }
 
-/* Reduce intensity on small screens */
 @media (max-width:800px){
-  body::before{background-position:center top; background-size:140%;}
+  .bg-layer{background-position:center top; background-size:140%; opacity:0.09}
+  body::before{background: linear-gradient(180deg, rgba(255,255,255,0.62), rgba(255,255,255,0.08));}
 }
 
-/* Dark mode overlay: darker gradient to preserve contrast */
 @media (prefers-color-scheme:dark){
-  body::before{
-    background:
-      linear-gradient(180deg, rgba(2,6,23,0.52), rgba(2,6,23,0.12)),
-      url('assets/bg-finance.svg') center/cover no-repeat;
-    opacity:1;
-  }
+  .bg-layer{filter:grayscale(0.9) contrast(0.9) saturate(0.6) blur(0.4px); opacity:0.10}
+  body::before{background: linear-gradient(180deg, rgba(2,6,23,0.56), rgba(2,6,23,0.12));}
 }
 
 .container{max-width:1100px;margin:0 auto;padding:1rem;position:relative;z-index:10}
