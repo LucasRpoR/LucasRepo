@@ -10,15 +10,17 @@ document.addEventListener('DOMContentLoaded',function(){
     toggle.textContent = isDark? '☀️' : '🌙';
   });
 
+  // Contact form: submission is handled by Formsubmit.co via form action.
+  // We show a local message if JS intercepts, but we generally let the form post so emails arrive.
   const form=document.getElementById('contactForm');
   const msg=document.getElementById('formMessage');
-  form.addEventListener('submit',e=>{
-    e.preventDefault();
-    const data = new FormData(form);
-    const name = data.get('name');
-    msg.textContent = `Gracias, ${name}. Tu mensaje ha sido enviado (simulado).`;
-    form.reset();
-  });
+  if(form){
+    form.addEventListener('submit',()=>{
+      // lightweight UX: fire confetti and show immediate feedback while the form redirects
+      msg.textContent = 'Enviando…';
+      burstConfetti(12);
+    });
+  }
 });
 
 // Additional interactivity: menu toggle, smooth scroll, reveal on scroll, theme picker, confetti effect

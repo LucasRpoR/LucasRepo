@@ -3,52 +3,94 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lucas web</title>
+  <title>Asesorías — Lucas Restrepo</title>
   <link rel="stylesheet" href="styles.css">
   <meta name="description" content="Página web de ejemplo creada rápidamente.">
 </head>
 <body>
   <header class="site-header">
-    <div class="container">
-      <h1 class="logo">Mi Sitio</h1>
+    <div class="container header-row">
+      <h1 class="logo">Lucas Asesorías</h1>
       <nav class="nav">
-        <a href="#">Inicio</a>
-        <a href="#features">Características</a>
-        <a href="#contact">Contacto</a>
+        <ul class="nav-links">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#services">Servicios</a></li>
+          <li><a href="#pricing">Precios</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
       </nav>
       <div class="actions">
+        <div class="theme-picker">
+          <button class="theme-btn" data-color="#2563eb" style="background:#2563eb" aria-label="Azul"></button>
+          <button class="theme-btn" data-color="#ec4899" style="background:#ec4899" aria-label="Rosa"></button>
+          <button class="theme-btn" data-color="#10b981" style="background:#10b981" aria-label="Verde"></button>
+        </div>
         <button id="darkToggle" aria-label="Alternar tema">🌙</button>
+        <button id="menuToggle" class="menu-toggle" aria-label="Abrir menú">☰</button>
       </div>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="container">
-        <h2>Bienvenido a tu nueva página web</h2>
-        <p>Esta es una plantilla sencilla para comenzar. Personalízala a tu gusto.</p>
-        <a class="btn" href="#contact">Contáctame</a>
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <h2>Asesorías en Criptomonedas y Mercados Financieros</h2>
+          <p>Servicios personalizados para invertir con seguridad, entender la tecnología cripto y optimizar tus estrategias.</p>
+          <div class="hero-cta">
+            <a class="btn" href="#services">Ver servicios</a>
+            <a class="btn ghost" href="#contact">Solicitar asesoría</a>
+          </div>
+        </div>
+        <div class="hero-art">
+          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob" aria-hidden>
+            <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="var(--accent)"/><stop offset="1" stop-color="var(--accent-2)"/></linearGradient></defs>
+            <path fill="url(#g)" d="M42.5,-62.2C55.2,-52.8,67.5,-45.7,73.9,-34.2C80.2,-22.8,80.6,-6.9,75.2,7.3C69.7,21.5,58.4,33.9,46.2,44.7C34,55.6,20.9,64.9,6.3,69.6C-8.2,74.3,-24.5,74.4,-36.8,67.2C-49.1,60,-57.6,45.5,-61.8,30C-66,14.6,-66,-1.7,-61.4,-16.6C-56.9,-31.5,-47.8,-45,-36.1,-53.9C-24.4,-62.8,-12.2,-67.2,1.6,-69.1C15.3,-71.1,30.6,-70.6,42.5,-62.2Z" transform="translate(100 100)"/>
+          </svg>
+        </div>
       </div>
     </section>
 
-    <section id="features" class="features container">
-      <article>
-        <h3>Diseño responsive</h3>
-        <p>Se adapta a móviles y escritorio.</p>
+    <section id="services" class="features container">
+      <article class="reveal">
+        <h3>Asesoría personalizada</h3>
+        <p>Sesiones 1:1 para definir estrategias de inversión en criptomonedas y manejo de riesgos.</p>
       </article>
-      <article>
-        <h3>Fácil de editar</h3>
-        <p>HTML, CSS y JS claros para personalizar.</p>
+      <article class="reveal">
+        <h3>Análisis de portafolio</h3>
+        <p>Revisión y optimización de carteras, rebalanceo y recomendaciones prácticas.</p>
       </article>
-      <article>
-        <h3>Interactividad</h3>
-        <p>Formulario de contacto y modo oscuro.</p>
+      <article class="reveal">
+        <h3>Formación y cursos</h3>
+        <p>Cursos introductorios y avanzados sobre trading, blockchain y buenas prácticas de seguridad.</p>
       </article>
+    </section>
+
+    <section id="pricing" class="container">
+      <h3>Planes</h3>
+      <div class="features">
+        <article class="reveal">
+          <h4>Básico</h4>
+          <p>Sesión única de 60 min — $50</p>
+        </article>
+        <article class="reveal">
+          <h4>Pro</h4>
+          <p>Plan mensual (4 sesiones) — $180</p>
+        </article>
+        <article class="reveal">
+          <h4>Premium</h4>
+          <p>Consultoría continua y análisis mensual — $400</p>
+        </article>
+      </div>
     </section>
 
     <section id="contact" class="contact container">
       <h3>Contacto</h3>
-      <form id="contactForm">
+      <p>Escríbeme para agendar una sesión o solicitar una cotización. Respondo en 24-48 horas.</p>
+      <form id="contactForm" action="https://formsubmit.co/lucasrpor@gmail.com" method="POST">
+        <input type="hidden" name="_next" value="/thank-you.html">
+        <input type="hidden" name="_subject" value="Nuevo mensaje desde web - Asesorías Lucas">
+        <input type="hidden" name="_captcha" value="false">
         <label>Nombre
           <input type="text" name="name" required>
         </label>
@@ -56,11 +98,12 @@
           <input type="email" name="email" required>
         </label>
         <label>Mensaje
-          <textarea name="message" rows="4" required></textarea>
+          <textarea name="message" rows="6" required></textarea>
         </label>
         <button type="submit" class="btn">Enviar</button>
       </form>
       <div id="formMessage" role="status" aria-live="polite"></div>
+      <p style="font-size:.9rem;color:var(--muted);margin-top:.6rem">Protección de datos: tu información solo se usará para responder tu solicitud.</p>
     </section>
   </main>
 

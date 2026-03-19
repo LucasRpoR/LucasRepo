@@ -12,56 +12,54 @@ Cómo ver la página:
 
 O ejecutar un servidor local (recomendado para rutas relativas):
 
-```bash
-# Python 3
-cd "~/Documents/website"
-python -m http.server 8000
-# luego abrir http://localhost:8000
-# Página de ejemplo
+# Sitio de Asesorías — Lucas Restrepo
 
-Archivos creados:
+Archivos principales:
 
-- `index.html` — estructura principal
-- `styles.css` — estilos
-- `script.js` — pequeñas interacciones (modo oscuro, formulario)
+- `index.html` — página principal y secciones de servicios
+- `styles.css` — estilos y temas
+- `script.js` — interacciones (tema, menú, animaciones, confetti)
+- `thank-you.html` — página de agradecimiento tras el envío
 
-Cómo ver la página:
+Cómo ver localmente:
 
-1. Abrir `index.html` en tu navegador.
-
-O ejecutar un servidor local (recomendado para rutas relativas):
-
-```bash
-# Python 3
+```powershell
 cd "%USERPROFILE%\Documents\website"
+# Python 3
 python -m http.server 8000
 # luego abrir http://localhost:8000
 ```
 
-Siguientes pasos sugeridos:
+Despliegue en GitHub Pages
+-------------------------
 
-- Personalizar textos, colores y contenido.
-- Añadir imágenes en una carpeta `images/`.
-- Conectar el formulario a un backend o servicio de correo.
-
----
-
-## Despliegue en GitHub Pages
-
-Pasos rápidos:
-
-1. Crea un repo en GitHub (https://github.com/new) y copia la URL remota (https://github.com/usuario/repo.git).
-2. En Windows puedes usar el script `push_to_github.bat` incluido. Abre CMD/PowerShell en la carpeta `website` y ejecuta:
+1. Crea un repo en GitHub (https://github.com/new) y copia la URL remota.
+2. Desde la carpeta del proyecto en Windows puedes ejecutar el script incluido:
 
 ```powershell
 .\push_to_github.bat
 ```
 
-3. En GitHub, ve a Settings → Pages → Source y selecciona `main` / (root). Guarda.
+3. En GitHub: Settings → Pages → Source = `main` / (root). Guarda. La URL será `https://TU_USUARIO.github.io/TU_REPO/`.
 
-4. (Opcional) Dominio personalizado: crea un archivo llamado `CNAME` en la raíz del proyecto con tu dominio completo (por ejemplo `ejemplo.com`) y empuja de nuevo. Luego, en tu proveedor DNS, añade un `CNAME` para `www` apuntando a `usuario.github.io` o usa los registros A de GitHub Pages para la raíz.
+Dominio personalizado (opcional)
+- Crea un archivo llamado `CNAME` en la raíz con tu dominio (ej. `ejemplo.com`) y empuja al repo.
+- En tu proveedor DNS añade un `CNAME` para `www` apuntando a `TU_USUARIO.github.io` y/o A records para la raíz según la documentación de GitHub Pages.
 
-Notas:
+Contacto por email desde la web
+-------------------------------
 
-- GitHub Pages activa SSL automáticamente en unos minutos.
-- Si quieres, puedo crear el archivo `CNAME` por ti si me das el dominio completo.
+El formulario está configurado para enviar mensajes directamente a: `lucasrpor@gmail.com` usando Formsubmit.co. No necesitas backend: cuando alguien envíe el formulario, Formsubmit reenviará el contenido al correo configurado.
+
+Si prefieres otra solución (Netlify Forms, Formspree, o un backend propio), puedo configurarlo.
+
+¿Siguientes pasos sugeridos?
+
+- Probar el formulario enviando un mensaje (llegará a `lucasrpor@gmail.com`).
+- Ajustar textos, precios y planes.
+- Añadir secciones (testimonios, FAQ, blog) o integrar pagos/agenda.
+
+***
+
+Si quieres que haga algún cambio en el contenido del sitio (texto, precios, FAQs, agregar servicios), dime qué editar y lo actualizo aquí mismo.
+
