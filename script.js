@@ -15,10 +15,33 @@ document.addEventListener('DOMContentLoaded',function(){
   const form=document.getElementById('contactForm');
   const msg=document.getElementById('formMessage');
   if(form){
-    form.addEventListener('submit',()=>{
+    form.addEventListener('submit',(e)=>{
       // lightweight UX: fire confetti and show immediate feedback while the form redirects
       msg.textContent = 'Enviando…';
       burstConfetti(12);
+
+      // Fallback: if the normal form POST doesn't redirect (possible network or provider issue),
+      // attempt a silent fetch POST after a short delay so the lead is still sent.
+      const startPath = location.pathname;
+      setTimeout(()=>{
+        try{
+          if(location.pathname === startPath){
+            const fd = new FormData(form);
+            fetch(form.action, { method: 'POST', body: fd, mode: 'cors' })
+              .then(res=>{
+                if(res.ok || res.type === 'opaque'){
+                  msg.textContent = 'Envío alternativo completado. Gracias.';
+                } else {
+                  msg.textContent = 'No se pudo enviar automáticamente. Por favor revisa tu conexión.';
+                }
+              }).catch(()=>{
+                msg.textContent = 'No se pudo enviar automáticamente. Intenta de nuevo o contacta a lucasrpor@gmail.com';
+              });
+          }
+        }catch(err){
+          console.warn('Fallback post failed', err);
+        }
+      }, 2200);
     });
   }
 });
