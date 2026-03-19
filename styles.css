@@ -10,12 +10,14 @@ body{font-family:Inter, 'Segoe UI', Roboto, Arial, sans-serif;margin:0;backgroun
 .bg-layer{
   position:fixed;
   inset:0;
-  background-image: url('assets/bg-finance.svg');
-  background-size:cover;
+  /* use user-provided hero image as the main background */
+  background-image: url('assets/hero-bg.jpg');
+  background-size: cover;
   background-position: center;
-  background-repeat:no-repeat;
-  filter:grayscale(0.7) contrast(0.9) saturate(0.7) blur(0.3px);
-  opacity:0.14;
+  background-repeat: no-repeat;
+  /* tone down and desaturate slightly so content remains readable */
+  filter: contrast(0.9) saturate(0.7) brightness(0.6) blur(0.3px);
+  opacity:0.16;
   pointer-events:none;
   z-index:0;
   transform:translate3d(0,0,0);
